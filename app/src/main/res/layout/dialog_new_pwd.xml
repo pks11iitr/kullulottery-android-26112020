@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        android:background="@color/black">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape_circle_login"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:src="@drawable/ic_key"/>
+
+        </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Change Password"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+
+        <EditText
+            android:id="@+id/et_pwd_change"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Password*"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/shape_username"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            android:theme="@style/MyEditTextTheme"/>
+
+
+        <EditText
+            android:id="@+id/et_pwd_change_Cnfm"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="Confirm Password*"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/shape_username"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"
+            android:theme="@style/MyEditTextTheme"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_submt_pwd"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:background="@drawable/login_shape"
+                android:text="Submit"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

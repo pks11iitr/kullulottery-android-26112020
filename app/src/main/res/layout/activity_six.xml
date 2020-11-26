@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".acitvities.SecondActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardviewlayout"
+        android:orientation="vertical"
+        android:layout_marginRight="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
+        android:gravity="center"
+        android:layout_marginLeft="25sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome Name"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/greenlight"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardviewlayout"
+        android:orientation="vertical"
+        android:layout_marginRight="155sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="55sp"
+        android:gravity="center"
+        android:layout_marginLeft="155sp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/greenlight"/>
+    </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10.00AM"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="55sp"
+            android:textAllCaps="true"
+            android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="02.00PM"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="15sp"
+        android:textAllCaps="true"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="06.00PM"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="15sp"
+        android:textAllCaps="true"
+        android:textColor="@color/black"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@drawable/cardviewlayout"
+        android:orientation="vertical"
+        android:layout_marginRight="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
+        android:gravity="center"
+        android:layout_marginLeft="25sp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT DRAW TIME"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/greenlight"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

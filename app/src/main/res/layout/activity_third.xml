@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".acitvities.SecondActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/login_shape_bk">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_baseline_close"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardviewlayout"
+        android:orientation="vertical"
+        android:layout_marginRight="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15sp"
+        android:gravity="center"
+        android:layout_marginLeft="25sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome Name"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/greenlight"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cardviewlayout"
+        android:orientation="vertical"
+        android:layout_marginRight="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="55sp"
+        android:gravity="center"
+        android:layout_marginLeft="25sp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Balance is"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/red"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RS-15000.00"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/black"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lastlear"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:background="@drawable/cirlcle_shpae"
+        android:orientation="vertical"
+        android:layout_marginRight="25sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="55sp"
+        android:gravity="center"
+        android:layout_marginLeft="25sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Draw"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLICK"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textColor="@color/greenlight"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

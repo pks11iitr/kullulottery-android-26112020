@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "350083530951",
+    "firebase_url": "https://bangolelautry.firebaseio.com",
+    "project_id": "bangolelautry",
+    "storage_bucket": "bangolelautry.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350083530951:android:d1d6381f4e0ef1f5bb7ee2",
+        "android_client_info": {
+          "package_name": "com.kuil.KuilLottery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350083530951-ccnjvj8s7g2d97nf7bu694374up17j5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnRyt-uiGYaQjVga549SMP6G8PuP2Q13g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350083530951-ccnjvj8s7g2d97nf7bu694374up17j5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

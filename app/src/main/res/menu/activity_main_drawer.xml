@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Game" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="History" />
+
+        <item
+            android:id="@+id/nav_downHist"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Downline History" />
+        <item
+            android:id="@+id/nav_result"
+            android:icon="@drawable/drwa_result_icon"
+            android:title="Result" />
+        <item
+            android:id="@+id/nav_notification"
+            android:icon="@drawable/notifications_icon"
+            android:title="Notification" />
+
+        <item android:id="@+id/nav_about_us"
+            android:icon="@drawable/about_us_icon"
+            android:title="About Us"></item>
+
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:icon="@drawable/privacy_policy_icon"
+            android:title="Privacy Policy" />
+
+<!--        <item-->
+<!--            android:id="@+id/nav_contact_us"-->
+<!--            android:icon="@drawable/phone_icon"-->
+<!--            android:title="Contact Us" />-->
+
+        <item
+            android:id="@+id/nav_term_condition"
+            android:icon="@drawable/terms_conditions_icon"
+            android:title="Term and Condition" />
+
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/logout_icon"
+            android:title="Logout" />
+    </group>
+</menu>

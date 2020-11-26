@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText android:id="@+id/edtFirst"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginRight="2dp"
+    android:background="@color/yellow"
+    android:gravity="center"
+    android:hint="0"
+    android:inputType="number"
+    android:textColor="@color/black"
+    android:textColorHint="@color/black"
+    android:textSize="10sp"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
