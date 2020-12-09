@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.kuil.KuilLottery.R;
 import com.kuil.KuilLottery.fragment.AboutUsFragment;
+import com.kuil.KuilLottery.fragment.DownlineAgentFragment;
 import com.kuil.KuilLottery.fragment.GameFragment;
 import com.kuil.KuilLottery.fragment.HistoryFragment;
 import com.kuil.KuilLottery.fragment.NotificationFragment;
@@ -37,11 +38,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Snackbar snackbar;
     TextView TvMobileGuest;
     TextView tv_tool;
-    static public TextView txtBalnc,txtUser;
+    static public TextView txtBalnc, txtUser;
 
     private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
     SessonManager sessonManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,8 +118,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 BackCounter++;
                 break;
 
-                case R.id.nav_downHist:
-                startActivity(new Intent(MainActivity.this,DownLineActivity.class));
+            case R.id.nav_downHist:
+                startActivity(new Intent(MainActivity.this, DownLineActivity.class));
                 drawer.closeDrawers();
                 BackCounter++;
                 break;
@@ -133,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                tv_tool.setText("Notification");
 //                drawer.closeDrawers();
 //                fragment = new NotificationFragment();
-                startActivity(new Intent(MainActivity.this,NotificationActivity.class));
+                startActivity(new Intent(MainActivity.this, NotificationActivity.class));
                 BackCounter++;
                 break;
 
@@ -142,6 +144,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 tv_tool.setText("About Us");
                 drawer.closeDrawers();
                 fragment = new AboutUsFragment();
+                BackCounter++;
+                break;
+
+            case R.id.nav_agent:
+                tv_tool.setText("DownLine Agent");
+                drawer.closeDrawers();
+                fragment = new DownlineAgentFragment();
                 BackCounter++;
                 break;
 

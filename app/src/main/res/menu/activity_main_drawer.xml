@@ -21,6 +21,11 @@
             android:id="@+id/nav_result"
             android:icon="@drawable/drwa_result_icon"
             android:title="Result" />
+
+        <item
+            android:id="@+id/nav_agent"
+            android:icon="@drawable/drwa_result_icon"
+            android:title="Downline Agent" />
         <item
             android:id="@+id/nav_notification"
             android:icon="@drawable/notifications_icon"

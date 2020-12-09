@@ -3,6 +3,7 @@ package com.kuil.KuilLottery.fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.kuil.KuilLottery.R;
 import com.kuil.KuilLottery.acitvities.BookGameActivity;
 import com.kuil.KuilLottery.acitvities.MainActivity;
@@ -50,7 +52,7 @@ public class GameFragment extends Fragment {
 
    SessonManager sessonManager;
    ImageView imgRefreshHome;
-   TextView txtRemainBalnceHome;
+   TextView txtRemainBalnceHome,txtCommision;
     public GameFragment() {
         // Required empty public constructor
     }
@@ -65,8 +67,9 @@ public class GameFragment extends Fragment {
              RvGame = root.findViewById(R.id.rv_game);
              imgRefreshHome = root.findViewById(R.id.imgRefreshHome);
              txtRemainBalnceHome = root.findViewById(R.id.txtRemainBalnceHome);
+             txtCommision = root.findViewById(R.id.txtCommision);
              arListGame = new ArrayList<>();
-           //  Log.d("lqwsdaop",sessonManager.getToken());
+             Log.d("lqwsdaop",sessonManager.getToken());
 
              setGameListAPI();
 
@@ -134,6 +137,14 @@ public class GameFragment extends Fragment {
             } else {
                 holder.tv_bid_no.setText("");
             }
+
+            if(arList.get(position).getColor_code()!=null){
+                holder.linear_game.setBackgroundColor(Color.parseColor(arList.get(position).getColor_code()));
+            }else {
+                holder.linear_game.setBackgroundColor(Color.parseColor("#303030"));
+            }
+
+
 
 
             if(holder.timerCount==null&&(arList.get(position).getRemaining()>0)) {
@@ -213,6 +224,7 @@ public class GameFragment extends Fragment {
                              @Override
                              public void onResponse(Call<GameJsonResponse> call, Response<GameJsonResponse> response) {
 //                                 System.out.println("ViewVisitorType " + "API Data" + new Gson().toJson(response.body()));
+                                 Log.d("kjsadadqwe", new Gson().toJson(response.body()));
                                  if (dialog != null && dialog.isShowing()) {
                                      dialog.dismiss();
                                  }
@@ -220,6 +232,7 @@ public class GameFragment extends Fragment {
                                      if (response.body().status != null && response.body().status.equals("success")) {
                                          txtBalnc.setText(" ₹"+response.body().balance);
                                          txtUser.setText(response.body().username);
+                                         txtCommision.setText("Total Commision: ₹"+response.body().commissiontotal);
                                          txtRemainBalnceHome.setText("Balance: ₹"+response.body().balance);
                                          if (response.body().data != null && response.body().data.size() > 0) {
                                              arListGame.clear();

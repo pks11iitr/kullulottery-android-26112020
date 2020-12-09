@@ -10,5 +10,6 @@ public class GameJsonResponse {
     public String message;
     public String balance;
     public String username;
+    public String commissiontotal;
     public List<GameListData> data;
 }

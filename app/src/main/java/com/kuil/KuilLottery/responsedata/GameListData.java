@@ -8,8 +8,17 @@ public class GameListData {
     private String close_date;
     private String bid_qty;
     private String isactive;
+    private String color_code;
     private long remaining;
 
+
+    public String getColor_code() {
+        return color_code;
+    }
+
+    public void setColor_code(String color_code) {
+        this.color_code = color_code;
+    }
     public long getRemaining() {
         return remaining;
     }

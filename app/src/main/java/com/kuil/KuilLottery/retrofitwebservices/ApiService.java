@@ -6,6 +6,8 @@ import com.kuil.KuilLottery.apiJsonResponse.GameDetailsJsonResponse;
 import com.kuil.KuilLottery.apiJsonResponse.GameJsonResponse;
 import com.kuil.KuilLottery.apiJsonResponse.LoginJsonResponse;
 import com.kuil.KuilLottery.requestdata.LoginRequest;
+import com.kuil.KuilLottery.retrofitModel.AgentListDataModel;
+import com.kuil.KuilLottery.retrofitModel.AgentListModel;
 import com.kuil.KuilLottery.retrofitModel.BookGameModel;
 import com.kuil.KuilLottery.retrofitModel.ChangePasswordModel;
 import com.kuil.KuilLottery.retrofitModel.DownLineStatusModel;
@@ -58,6 +60,15 @@ public interface ApiService {
     @NonNull
     @GET("notifications")
     Call<NotificationStatusModel> getNotificatioList(@Header("Authorization") String token);
+
+    @NonNull
+    @GET("downline-history-game")
+    Call<AgentListDataModel> getAgentListData(@Header("Authorization") String token, @Query("agent_id") int agent_id,
+                                              @Query("close_date") String close_date);
+
+    @NonNull
+    @GET("agent-user-list")
+    Call<AgentListModel> getAgentList(@Header("Authorization") String token);
 
     @NonNull
     @FormUrlEncoded
