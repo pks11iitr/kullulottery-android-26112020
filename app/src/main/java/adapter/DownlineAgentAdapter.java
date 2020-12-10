@@ -41,13 +41,9 @@ public class DownlineAgentAdapter extends RecyclerView.Adapter<DownlineAgentAdap
         AgentListDataModel.Data.Game model = arList.get(position);
         if (model.getName() != null) {
             holder.txtName.setText(model.getName());
+            holder.txtSerial.setText(String.valueOf(position+1));
         }
-        if (model.getCloseDate() != null) {
-            holder.txtCloseDate.setText(model.getCloseDate());
-        }
-        if (model.getTime() != null) {
-            holder.txtTime.setText(model.getTime());
-        }
+
         if (model.getTotaltan() != null) {
             holder.txtTotalTan.setText(""+model.getTotaltan());
         }
@@ -68,16 +64,15 @@ public class DownlineAgentAdapter extends RecyclerView.Adapter<DownlineAgentAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtCloseDate, txtName, txtTime, txtTotalTan, txtTotalTicket, txtTotalWin;
+        TextView  txtName, txtTotalTan, txtTotalTicket, txtTotalWin,txtSerial;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txtCloseDate = itemView.findViewById(R.id.txtCloseDate);
             txtName = itemView.findViewById(R.id.txtName);
-            txtTime = itemView.findViewById(R.id.txtTime);
             txtTotalTan = itemView.findViewById(R.id.txtTotalTan);
             txtTotalTicket = itemView.findViewById(R.id.txtTotalTicket);
             txtTotalWin = itemView.findViewById(R.id.txtTotalWin);
+            txtSerial = itemView.findViewById(R.id.txtSerial);
 
 
         }

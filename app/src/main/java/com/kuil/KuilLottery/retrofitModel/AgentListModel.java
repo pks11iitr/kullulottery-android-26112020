@@ -67,7 +67,7 @@ public class AgentListModel {
             private Integer parentId;
             @SerializedName("rate")
             @Expose
-            private Integer rate;
+            private String rate;
             @SerializedName("status")
             @Expose
             private Integer status;
@@ -99,11 +99,11 @@ public class AgentListModel {
                 this.parentId = parentId;
             }
 
-            public Integer getRate() {
+            public String getRate() {
                 return rate;
             }
 
-            public void setRate(Integer rate) {
+            public void setRate(String rate) {
                 this.rate = rate;
             }
 

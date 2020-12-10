@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +41,7 @@ public class DownlineAgentFragment extends Fragment {
     View view;
 
     CardView cardDate;
-    TextView tv_date,txtFinalTotalWin,txtFinalTotalTicket,txtFinalTotalTan;
+    TextView tv_date,txtFinalTotalWin,txtFinalTotalTicket,txtFinalTotalTan,txtCloseDate,txtAgentNAme;
     Button btn_Apply;
     RecyclerView rvAgentData;
     SessonManager sessonManager;
@@ -48,7 +49,8 @@ public class DownlineAgentFragment extends Fragment {
     ArrayList<AgentListModel.Data.Agent> listAgent = new ArrayList<>();
     ArrayList<AgentListDataModel.Data.Game> listData = new ArrayList<>();
     int agentId;
-    CardView cardFinalTotal;
+    LinearLayout cardFinalTotal,linearHeaderResult,linearUser;
+    String agentNAme;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,6 +67,10 @@ public class DownlineAgentFragment extends Fragment {
         spinnerAgent = view.findViewById(R.id.spinnerAgent);
         rvAgentData = view.findViewById(R.id.rvAgentData);
         btn_Apply = view.findViewById(R.id.btn_Apply);
+        txtCloseDate = view.findViewById(R.id.txtCloseDate);
+        txtAgentNAme = view.findViewById(R.id.txtAgentNAme);
+        linearHeaderResult = view.findViewById(R.id.linearHeaderResult);
+        linearUser = view.findViewById(R.id.linearUser);
         hitApi();
 
         onClick();
@@ -76,6 +82,7 @@ public class DownlineAgentFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 agentId = listAgent.get(position).getId();
+                agentNAme = listAgent.get(position).getEmail();
                // Log.d("assadksla",agentId+"");
             }
 
@@ -142,7 +149,12 @@ public class DownlineAgentFragment extends Fragment {
                 dialogs.dismiss();
                 AgentListDataModel model = response.body();
                 if(model.getStatus().equals("success")){
+                    linearUser.setVisibility(View.VISIBLE);
+                    txtCloseDate.setText("Date : "+tv_date.getText().toString());
+                    txtAgentNAme.setText("User : "+agentNAme);
+
                     cardFinalTotal.setVisibility(View.VISIBLE);
+                    linearHeaderResult.setVisibility(View.VISIBLE);
                     AgentListDataModel.Data data = model.getData();
                     AgentListDataModel.Data.Total total = data.getTotal();
                     if(total.getFinaltotaltan()!=null){
