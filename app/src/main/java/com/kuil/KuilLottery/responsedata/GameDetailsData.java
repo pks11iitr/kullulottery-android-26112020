@@ -7,6 +7,7 @@ public class GameDetailsData {
     public String game_time;
     public double price;
     public String degit;
+    public long remaining;
     public String close_date;
     public String bid_qty;
     public String isactive;

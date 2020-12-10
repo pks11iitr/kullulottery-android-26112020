@@ -35,19 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Select Date"
-        android:textAllCaps="true"
         android:gravity="center"
-        android:textColor="@color/white"
-        android:background="@color/green"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textColor="@color/black"
+        android:background="#6B41B6"
+        android:textSize="17sp" />
 
-<!--    <View-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height=".5dp"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:layout_marginBottom="5dp"-->
-<!--        android:background="@color/white"/>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,8 +49,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:background="@drawable/date_icon"
                     app:tint="@color/white" />
 
@@ -96,12 +88,10 @@
                 android:layout_marginLeft="2dp"
                 android:text="Select Agent"
                 android:gravity="center"
-                android:background="@color/green"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textAllCaps="true"
-                android:layout_gravity="center_horizontal"
-                android:textStyle="bold" />
+                android:textColor="@color/black"
+                android:background="#6B41B6"
+                android:textSize="17sp"
+                android:layout_gravity="center_horizontal" />
 
 <!--            <View-->
 <!--                android:layout_width="match_parent"-->
@@ -117,7 +107,7 @@
                     android:text=""
                     android:backgroundTint="@color/white"
                     android:textSize="17sp"
-                    android:textStyle="bold" />
+                    />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -142,7 +132,7 @@
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            />
 
     </LinearLayout>
 
@@ -150,7 +140,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/green"
+        android:background="#6B41B6"
         android:layout_marginTop="10dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -163,11 +153,9 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:gravity="start"
-            android:layout_marginTop="5dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:textSize="17dp"
             android:text=""/>
 
         <TextView
@@ -175,11 +163,9 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:gravity="right"
-            android:layout_marginTop="5dp"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:textSize="17dp"
             android:text=""/>
     </LinearLayout>
 
@@ -200,41 +186,39 @@
             android:layout_weight="2"
             android:paddingLeft="5dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="start"
-            android:textStyle="bold"
             android:text="Name"/>
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text="Tan"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="Ticket"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="Win"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:text="Tan"/>
+
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
@@ -265,32 +249,20 @@
             android:layout_weight="2"
             android:paddingLeft="5dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="start"
-            android:textStyle="bold"
             android:text="Total"/>
 
-        <TextView
-            android:id="@+id/txtFinalTotalTan"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:textStyle="bold"
-            android:text=""/>
 
         <TextView
             android:id="@+id/txtFinalTotalTicket"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:text=""/>
 
         <TextView
@@ -298,11 +270,21 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:textSize="17dp"
             android:gravity="center"
-            android:textStyle="bold"
             android:text=""/>
+
+        <TextView
+            android:id="@+id/txtFinalTotalTan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:text=""/>
+
 
     </LinearLayout>
 

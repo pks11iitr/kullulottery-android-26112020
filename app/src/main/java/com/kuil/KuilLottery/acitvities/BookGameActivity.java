@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -27,6 +28,7 @@ import com.google.gson.Gson;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +39,7 @@ public class BookGameActivity extends AppCompatActivity {
     Button BtnDone;
 
     SessonManager sessonManager;
-    TextView TvName, TvTime, TvDate, TvBalance, txtPricePerBlock,txtTotalAmount;
+    TextView TvName, TvTime, TvDate, TvBalance, txtPricePerBlock,txtTotalAmount,tv_time_Timer;
     EditText edtFirst, edtSecond, edtThird, edtFourth, edtFifth,
             edtSixth, edtSeventh, edtEight, edtNine, edtTen;
     TextView txtTodayDigit;
@@ -51,6 +53,7 @@ public class BookGameActivity extends AppCompatActivity {
     Dialog dialog;
     Button btnDoneThanks;
     Double price;
+    CountDownTimer timerCount;
 
 
     @Override
@@ -155,9 +158,6 @@ public class BookGameActivity extends AppCompatActivity {
                     perBlockPrice = Double.valueOf(pr2);
                     //Log.d("jlkasdsdad",""+perBlockPrice);
                 }
-
-
-
 
                 if (edtFirst.getText().toString().isEmpty()) {
                     qty_bid1 = "0";
@@ -297,6 +297,7 @@ public class BookGameActivity extends AppCompatActivity {
         TvTime = findViewById(R.id.tv_time_detail);
         TvDate = findViewById(R.id.tv_date_details);
         TvBalance = findViewById(R.id.tv_balance_detail);
+        tv_time_Timer = findViewById(R.id.tv_time_Timer);
       //  TvTotal = findViewById(R.id.tv_total_detail);
         edtFirst = findViewById(R.id.edtFirst);
         edtSecond = findViewById(R.id.edtSecond);
@@ -315,6 +316,18 @@ public class BookGameActivity extends AppCompatActivity {
         BtnDone = findViewById(R.id.btn_done_details);
     }
 
+    @Override
+    protected void onPause() {
+        timerCount.cancel();
+        super.onPause();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        timerCount.cancel();
+        super.onDestroy();
+    }
 
     private void setGameDetailsAPI() {
         if (CommonUtils.isOnline(BookGameActivity.this)) {
@@ -355,6 +368,21 @@ public class BookGameActivity extends AppCompatActivity {
                                              TvName.setText(name);
                                              TvTime.setText(game_time);
                                              // Log.d("gamehhjghgh", game_time);
+                                             timerCount =  new CountDownTimer(response.body().data.game.remaining, 1000) {
+                                                 @Override
+                                                 public void onTick(long millisUntilFinished) {
+                                                     String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millisUntilFinished), TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinished)), TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
+
+                                                     tv_time_Timer.setText(hms);
+                                                 }
+
+                                                 @Override
+                                                 public void onFinish() {
+                                                     timerCount.cancel();
+                                                     onBackPressed();
+                                                 }
+                                             };
+                                             timerCount.start();
 
                                          } else {
                                              Toast.makeText(BookGameActivity.this, ""+response.body().message, Toast.LENGTH_SHORT).show();
