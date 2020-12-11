@@ -185,7 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text=""
-                    android:textColor="@color/red"
+                    android:textColor="@color/white"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -803,6 +803,16 @@
 
     <TextView
         android:id="@+id/txtTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtTotalTicket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"

@@ -39,7 +39,7 @@ public class BookGameActivity extends AppCompatActivity {
     Button BtnDone;
 
     SessonManager sessonManager;
-    TextView TvName, TvTime, TvDate, TvBalance, txtPricePerBlock,txtTotalAmount,tv_time_Timer;
+    TextView TvName, TvTime, TvDate, TvBalance, txtPricePerBlock,txtTotalAmount,tv_time_Timer,txtTotalTicket;
     EditText edtFirst, edtSecond, edtThird, edtFourth, edtFifth,
             edtSixth, edtSeventh, edtEight, edtNine, edtTen;
     TextView txtTodayDigit;
@@ -117,13 +117,17 @@ public class BookGameActivity extends AppCompatActivity {
                             +(nineValue * price) + (tenValue * price);
 
 
+
                     DecimalFormat df = new DecimalFormat("0.00");
                     df.setRoundingMode(RoundingMode.UP);
                     answer = Double.parseDouble(df.format(answer));
 
                     txtTotalAmount.setText("Total Amount - ₹" +answer);
+                    txtTotalTicket.setText("Total Ticket - ₹"+(firtValue+secondValue+thirdValue+forthValue+fifthValue+sixthValue+
+                            seventhValue+eightValue+nineValue+tenValue));
                 } else {
                     txtTotalAmount.setText("");
+                    txtTotalTicket.setText("");
                 }
             }
 
@@ -291,6 +295,7 @@ public class BookGameActivity extends AppCompatActivity {
         sessonManager = new SessonManager(BookGameActivity.this);
         dialog = new Dialog(BookGameActivity.this);
         dialog.setContentView(R.layout.dialog_thanks);
+        dialog.setCanceledOnTouchOutside(false);
         btnDoneThanks = dialog.findViewById(R.id.btnDoneThanks);
 
         TvName = findViewById(R.id.tv_name_detail);
@@ -311,6 +316,7 @@ public class BookGameActivity extends AppCompatActivity {
         edtTen = findViewById(R.id.edtTen);
         txtTodayDigit = findViewById(R.id.txtTodayDigit);
         txtTotalAmount = findViewById(R.id.txtTotalAmount);
+        txtTotalTicket = findViewById(R.id.txtTotalTicket);
         imageBack = findViewById(R.id.image_back);
         txtPricePerBlock = findViewById(R.id.txtPricePerBlock);
         BtnDone = findViewById(R.id.btn_done_details);

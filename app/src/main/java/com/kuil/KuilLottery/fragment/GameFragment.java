@@ -40,6 +40,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.kuil.KuilLottery.acitvities.MainActivity.txtBalnc;
+import static com.kuil.KuilLottery.acitvities.MainActivity.txtCommisn;
 import static com.kuil.KuilLottery.acitvities.MainActivity.txtUser;
 
 
@@ -232,7 +233,8 @@ public class GameFragment extends Fragment {
                                      if (response.body().status != null && response.body().status.equals("success")) {
                                          txtBalnc.setText(" ₹"+response.body().balance);
                                          txtUser.setText(response.body().username);
-                                         txtCommision.setText("Total Commision: ₹"+response.body().commissiontotal);
+                                         txtCommision.setText("Commision: ₹"+response.body().commissiontotal);
+                                         txtCommisn.setText(" ₹"+response.body().commissiontotal);
                                          txtRemainBalnceHome.setText("Balance: ₹"+response.body().balance);
                                          if (response.body().data != null && response.body().data.size() > 0) {
                                              arListGame.clear();

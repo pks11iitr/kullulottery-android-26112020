@@ -219,7 +219,7 @@ public class HistoryFragment extends Fragment implements HistoryTabAdapter.OnTab
             }
 
             if (arList.get(position).getGamePrice() != null && arList.get(position).getGamePrice().length() > 0) {
-                holder.tv_price_history.setText(arList.get(position).getGameTiming());
+                holder.tv_price_history.setText("₹"+arList.get(position).getGamePrice());
             } else {
                 holder.tv_price_history.setText("");
             }

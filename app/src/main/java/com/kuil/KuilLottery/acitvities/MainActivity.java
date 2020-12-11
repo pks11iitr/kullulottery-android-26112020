@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Snackbar snackbar;
     TextView TvMobileGuest;
     TextView tv_tool;
-    static public TextView txtBalnc, txtUser;
+    static public TextView txtBalnc, txtUser,txtCommisn;
 
     private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;
@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         View headerView = navigationView.getHeaderView(0);
         txtBalnc = headerView.findViewById(R.id.txtBalnc);
         txtUser = headerView.findViewById(R.id.txtUser);
+        txtCommisn = headerView.findViewById(R.id.txtCommisn);
 
         displaySelectedScreen(R.id.nav_view);
 
@@ -140,27 +141,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
 
-            case R.id.nav_about_us:
-                tv_tool.setText("About Us");
-                drawer.closeDrawers();
-                fragment = new AboutUsFragment();
-                BackCounter++;
-                break;
+//            case R.id.nav_about_us:
+//                tv_tool.setText("About Us");
+//                drawer.closeDrawers();
+//                fragment = new AboutUsFragment();
+//                BackCounter++;
+//                break;
 
             case R.id.nav_agent:
-                tv_tool.setText("DownLine Agent");
+                tv_tool.setText("DownLine Bill");
                 drawer.closeDrawers();
                 fragment = new DownlineAgentFragment();
                 BackCounter++;
                 break;
 
 
-            case R.id.nav_privacy_policy:
-                tv_tool.setText("Privacy Policy");
-                drawer.closeDrawers();
-                fragment = new PrivacyPolicyFragment();
-                BackCounter++;
-                break;
+//            case R.id.nav_privacy_policy:
+//                tv_tool.setText("Privacy Policy");
+//                drawer.closeDrawers();
+//                fragment = new PrivacyPolicyFragment();
+//                BackCounter++;
+//                break;
 
 //            case R.id.nav_contact_us:
 //                tv_tool.setText("Contact Us");
@@ -170,12 +171,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //                break;
 
 
-            case R.id.nav_term_condition:
-                tv_tool.setText("Term and Conditions");
-                drawer.closeDrawers();
-                fragment = new TermConditionsFragment();
-                BackCounter++;
-                break;
+//            case R.id.nav_term_condition:
+//                tv_tool.setText("Term and Conditions");
+//                drawer.closeDrawers();
+//                fragment = new TermConditionsFragment();
+//                BackCounter++;
+//                break;
 
 
             case R.id.nav_logout:
