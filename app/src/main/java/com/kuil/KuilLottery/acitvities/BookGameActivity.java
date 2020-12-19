@@ -99,8 +99,8 @@ public class BookGameActivity extends AppCompatActivity {
                         || !TextUtils.isEmpty(edtNine.getText().toString().trim())
                         || !TextUtils.isEmpty(edtTen.getText().toString().trim())
                 )
-                {
 
+                {
                     int firtValue = TextUtils.isEmpty(edtFirst.getText().toString().trim()) ? 0 : Integer.parseInt(edtFirst.getText().toString().trim());
                     int secondValue = TextUtils.isEmpty(edtSecond.getText().toString().trim()) ? 0 : Integer.parseInt(edtSecond.getText().toString().trim());
                     int thirdValue = TextUtils.isEmpty(edtThird.getText().toString().trim()) ? 0 : Integer.parseInt(edtThird.getText().toString().trim());
@@ -123,7 +123,7 @@ public class BookGameActivity extends AppCompatActivity {
                     answer = Double.parseDouble(df.format(answer));
 
                     txtTotalAmount.setText("Total Amount - ₹" +answer);
-                    txtTotalTicket.setText("Total Ticket - ₹"+(firtValue+secondValue+thirdValue+forthValue+fifthValue+sixthValue+
+                    txtTotalTicket.setText("Total Ticket - "+(firtValue+secondValue+thirdValue+forthValue+fifthValue+sixthValue+
                             seventhValue+eightValue+nineValue+tenValue));
                 } else {
                     txtTotalAmount.setText("");
