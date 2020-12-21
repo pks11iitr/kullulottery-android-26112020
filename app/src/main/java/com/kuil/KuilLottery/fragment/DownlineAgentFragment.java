@@ -48,7 +48,7 @@ public class DownlineAgentFragment extends Fragment {
     Spinner spinnerAgent;
     ArrayList<AgentListModel.Data.Agent> listAgent = new ArrayList<>();
     ArrayList<AgentListDataModel.Data.Game> listData = new ArrayList<>();
-    int agentId;
+    int agentId=0;
     LinearLayout cardFinalTotal,linearHeaderResult,linearUser;
     String agentNAme;
 
@@ -148,7 +148,7 @@ public class DownlineAgentFragment extends Fragment {
             public void onResponse(Call<AgentListDataModel> call, Response<AgentListDataModel> response) {
                 dialogs.dismiss();
                 AgentListDataModel model = response.body();
-                if(model.getStatus().equals("success")){
+                if((!model.getStatus().equals("null")) && model.getStatus().equals("success")){
                     linearUser.setVisibility(View.VISIBLE);
                     txtCloseDate.setText("Date : "+tv_date.getText().toString());
                     txtAgentNAme.setText("User : "+agentNAme);
@@ -173,7 +173,7 @@ public class DownlineAgentFragment extends Fragment {
                     }
                 }
                 {
-                    // Toast.makeText(getActivity(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                     Toast.makeText(getActivity(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -202,7 +202,7 @@ public class DownlineAgentFragment extends Fragment {
                     AgentListModel model = response.body();
                     if (model.getStatus().equals("success")) {
                         listAgent = model.getData().getAgents();
-                        // Toast.makeText(getActivity(), "" + model.get(), Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getActivity(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
                         ArrayList<String> list = new ArrayList<>();
                         if(listAgent.size()>0){
                             for(int i=0;i<listAgent.size();i++){
@@ -210,13 +210,23 @@ public class DownlineAgentFragment extends Fragment {
                             }
                             ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), R.layout.spinner_item,list);
                             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            //Setting the ArrayAdapter data on the Spinner
                             spinnerAgent.setAdapter(arrayAdapter);
+
+                            Log.d("sjhjsadsad", String.valueOf(list.size()));
+                            if(list.size()==0){
+                                btn_Apply.setVisibility(View.GONE);
+                            }
+
+                        }else {
+                            if(listAgent.size()==0){
+                                btn_Apply.setVisibility(View.GONE);
+                            }
+
                         }
 
 
                     } else {
-                         Toast.makeText(getActivity(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getActivity(), "fail" + model.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -224,7 +234,7 @@ public class DownlineAgentFragment extends Fragment {
             @Override
             public void onFailure(Call<AgentListModel> call, Throwable t) {
                 dialogs.dismiss();
-                Toast.makeText(getActivity(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "failure" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

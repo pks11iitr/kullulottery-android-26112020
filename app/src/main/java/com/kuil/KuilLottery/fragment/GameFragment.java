@@ -233,8 +233,11 @@ public class GameFragment extends Fragment {
                                      if (response.body().status != null && response.body().status.equals("success")) {
                                          txtBalnc.setText(" ₹"+response.body().balance);
                                          txtUser.setText(response.body().username);
-                                         txtCommision.setText("Commision: ₹"+response.body().commissiontotal);
-                                         txtCommisn.setText(" ₹"+response.body().commissiontotal);
+                                         if(response.body().commissiontotal!=null){
+                                             txtCommision.setText("Commision: ₹"+response.body().commissiontotal);
+                                             txtCommisn.setText(" ₹"+response.body().commissiontotal);
+                                         }
+
                                          txtRemainBalnceHome.setText("Balance: ₹"+response.body().balance);
                                          if (response.body().data != null && response.body().data.size() > 0) {
                                              arListGame.clear();
