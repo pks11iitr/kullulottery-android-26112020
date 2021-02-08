@@ -2,6 +2,7 @@ package com.kuil.KuilLottery.retrofitwebservices;
 
 import androidx.annotation.NonNull;
 
+import com.kuil.KuilLottery.apiJsonResponse.GameBookCancelJsonResponse;
 import com.kuil.KuilLottery.apiJsonResponse.GameDetailsJsonResponse;
 import com.kuil.KuilLottery.apiJsonResponse.GameJsonResponse;
 import com.kuil.KuilLottery.apiJsonResponse.LoginJsonResponse;
@@ -23,6 +24,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -46,6 +48,7 @@ public interface ApiService {
     @NonNull
     @GET("history-game")
     Call<HistoryTabModel> getHistoryTab(@Header("Authorization") String token);
+
     @NonNull
     @GET("history-game")
     Call<HistoryTabModel> getDownHistoryTab();
@@ -57,6 +60,7 @@ public interface ApiService {
     @NonNull
     @GET("game-result")
     Call<ResultStatusModel> getResutlt(@Header("Authorization") String token);
+
     @NonNull
     @GET("notifications")
     Call<NotificationStatusModel> getNotificatioList(@Header("Authorization") String token);
@@ -73,7 +77,7 @@ public interface ApiService {
     @NonNull
     @FormUrlEncoded
     @POST("change-password")
-    Call<ChangePasswordModel> postChangePassword(@Header("Authorization") String token,@Field("password") String password);
+    Call<ChangePasswordModel> postChangePassword(@Header("Authorization") String token, @Field("password") String password);
 
 
     @FormUrlEncoded
@@ -88,7 +92,11 @@ public interface ApiService {
                                      @Field("bid_qty[3]") String qty3, @Field("bid_qty[4]") String qty4,
                                      @Field("bid_qty[5]") String qty5, @Field("bid_qty[6]") String qty6,
                                      @Field("bid_qty[7]") String qty7, @Field("bid_qty[8]") String qty8,
-                                     @Field("bid_qty[9]") String qty9);
+                                     @Field("bid_qty[9]") String qty9, @Field("comment") String comment);
 
+
+    @NonNull
+    @GET("game-book-cancel/{game_id}")
+    Call<GameBookCancelJsonResponse> GameBookCancel(@Header("Authorization") String token, @Path("game_id") String game_id);
 
 }

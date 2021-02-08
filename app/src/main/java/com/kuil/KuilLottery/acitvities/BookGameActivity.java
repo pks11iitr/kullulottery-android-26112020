@@ -37,14 +37,15 @@ import retrofit2.Response;
 public class BookGameActivity extends AppCompatActivity {
 
     Button BtnDone;
+    EditText EtComment;
 
     SessonManager sessonManager;
-    TextView TvName, TvTime, TvDate, TvBalance, txtPricePerBlock,txtTotalAmount,tv_time_Timer,txtTotalTicket;
+    TextView TvName, TvTime, TvDate, TvBalance, txtPricePerBlock, txtTotalAmount, tv_time_Timer, txtTotalTicket;
     EditText edtFirst, edtSecond, edtThird, edtFourth, edtFifth,
             edtSixth, edtSeventh, edtEight, edtNine, edtTen;
     TextView txtTodayDigit;
     ImageView imageBack;
-    String game_Id,balance;
+    String game_Id, balance;
     String qty_bid1 = "0", qty_bid2 = "0", qty_bid3 = "0", qty_bid4 = "0", qty_bid5 = "0", qty_bid6 = "0",
             qty_bid7 = "0", qty_bid8 = "0", qty_bid9 = "0", qty_bid10 = "0";
     String digit_bid1 = "0", digit_bid2 = "0", digit_bid3 = "0", digit_bid4 = "0", digit_bid5 = "0", digit_bid6 = "0",
@@ -98,9 +99,7 @@ public class BookGameActivity extends AppCompatActivity {
                         || !TextUtils.isEmpty(edtEight.getText().toString().trim())
                         || !TextUtils.isEmpty(edtNine.getText().toString().trim())
                         || !TextUtils.isEmpty(edtTen.getText().toString().trim())
-                )
-
-                {
+                ) {
                     int firtValue = TextUtils.isEmpty(edtFirst.getText().toString().trim()) ? 0 : Integer.parseInt(edtFirst.getText().toString().trim());
                     int secondValue = TextUtils.isEmpty(edtSecond.getText().toString().trim()) ? 0 : Integer.parseInt(edtSecond.getText().toString().trim());
                     int thirdValue = TextUtils.isEmpty(edtThird.getText().toString().trim()) ? 0 : Integer.parseInt(edtThird.getText().toString().trim());
@@ -112,19 +111,18 @@ public class BookGameActivity extends AppCompatActivity {
                     int nineValue = TextUtils.isEmpty(edtNine.getText().toString().trim()) ? 0 : Integer.parseInt(edtNine.getText().toString().trim());
                     int tenValue = TextUtils.isEmpty(edtTen.getText().toString().trim()) ? 0 : Integer.parseInt(edtTen.getText().toString().trim());
 
-                    double answer = (firtValue * price) + (secondValue * price) + (thirdValue * price) + (forthValue * price)+
+                    double answer = (firtValue * price) + (secondValue * price) + (thirdValue * price) + (forthValue * price) +
                             (fifthValue * price) + (sixthValue * price) + (seventhValue * price) + (eightValue * price)
-                            +(nineValue * price) + (tenValue * price);
-
+                            + (nineValue * price) + (tenValue * price);
 
 
                     DecimalFormat df = new DecimalFormat("0.00");
                     df.setRoundingMode(RoundingMode.UP);
                     answer = Double.parseDouble(df.format(answer));
 
-                    txtTotalAmount.setText("Total Amount - ₹" +answer);
-                    txtTotalTicket.setText("Total Ticket - "+(firtValue+secondValue+thirdValue+forthValue+fifthValue+sixthValue+
-                            seventhValue+eightValue+nineValue+tenValue));
+                    txtTotalAmount.setText("Total Amount - ₹" + answer);
+                    txtTotalTicket.setText("Total Ticket - " + (firtValue + secondValue + thirdValue + forthValue + fifthValue + sixthValue +
+                            seventhValue + eightValue + nineValue + tenValue));
                 } else {
                     txtTotalAmount.setText("");
                     txtTotalTicket.setText("");
@@ -150,10 +148,10 @@ public class BookGameActivity extends AppCompatActivity {
         BtnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Double perBlockPrice=0.0;
-                if(txtTotalAmount.getText().toString().isEmpty()){
+                Double perBlockPrice = 0.0;
+                if (txtTotalAmount.getText().toString().isEmpty()) {
                     Toast.makeText(BookGameActivity.this, "Please fill at least on block", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     String s = txtTotalAmount.getText().toString();
                     String[] str = s.split("₹");
                     String pr1 = str[0];
@@ -234,16 +232,14 @@ public class BookGameActivity extends AppCompatActivity {
                     digit_bid10 = edtTen.getText().toString();
                 }
 
-                if(edtFirst.getText().toString().isEmpty()&&edtSecond.getText().toString().isEmpty()&&edtThird.getText().toString().isEmpty()
-                        &&edtFourth.getText().toString().isEmpty()&&edtFifth.getText().toString().isEmpty()&&edtSixth.getText().toString().isEmpty()
-                        &&edtSeventh.getText().toString().isEmpty()&&edtEight.getText().toString().isEmpty()&&edtNine.getText().toString().isEmpty()
-                        &&edtTen.getText().toString().isEmpty()){
+                if (edtFirst.getText().toString().isEmpty() && edtSecond.getText().toString().isEmpty() && edtThird.getText().toString().isEmpty()
+                        && edtFourth.getText().toString().isEmpty() && edtFifth.getText().toString().isEmpty() && edtSixth.getText().toString().isEmpty()
+                        && edtSeventh.getText().toString().isEmpty() && edtEight.getText().toString().isEmpty() && edtNine.getText().toString().isEmpty()
+                        && edtTen.getText().toString().isEmpty()) {
                     Toast.makeText(BookGameActivity.this, "Please Fill at least one block", Toast.LENGTH_SHORT).show();
-                }
-                else if(perBlockPrice>Double.parseDouble(balance)){
+                } else if (perBlockPrice > Double.parseDouble(balance)) {
                     Toast.makeText(BookGameActivity.this, "Total Amount should be less than balance", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     hitApiBookGame();
                 }
 
@@ -262,7 +258,7 @@ public class BookGameActivity extends AppCompatActivity {
         Call<BookGameModel> call = ApiExecutor.getApiService(BookGameActivity.this).postBookGame(
                 "Bearer " + sessonManager.getToken(), game_Id,
                 digit_bid1, digit_bid2, digit_bid3, digit_bid4, digit_bid5, digit_bid6, digit_bid7, digit_bid8, digit_bid9, digit_bid10,
-                qty_bid1, qty_bid2, qty_bid3, qty_bid4, qty_bid5, qty_bid6, qty_bid7, qty_bid8, qty_bid9, qty_bid10);
+                qty_bid1, qty_bid2, qty_bid3, qty_bid4, qty_bid5, qty_bid6, qty_bid7, qty_bid8, qty_bid9, qty_bid10,EtComment.getText().toString());
 
         call.enqueue(new Callback<BookGameModel>() {
             @Override
@@ -277,8 +273,8 @@ public class BookGameActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(BookGameActivity.this, "" + model.getMsg(), Toast.LENGTH_SHORT).show();
                     }
-                }else {
-                    Toast.makeText(BookGameActivity.this, ""+response, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(BookGameActivity.this, "" + response, Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -303,7 +299,7 @@ public class BookGameActivity extends AppCompatActivity {
         TvDate = findViewById(R.id.tv_date_details);
         TvBalance = findViewById(R.id.tv_balance_detail);
         tv_time_Timer = findViewById(R.id.tv_time_Timer);
-      //  TvTotal = findViewById(R.id.tv_total_detail);
+        //  TvTotal = findViewById(R.id.tv_total_detail);
         edtFirst = findViewById(R.id.edtFirst);
         edtSecond = findViewById(R.id.edtSecond);
         edtThird = findViewById(R.id.edtThird);
@@ -319,6 +315,7 @@ public class BookGameActivity extends AppCompatActivity {
         txtTotalTicket = findViewById(R.id.txtTotalTicket);
         imageBack = findViewById(R.id.image_back);
         txtPricePerBlock = findViewById(R.id.txtPricePerBlock);
+        EtComment = findViewById(R.id.EtComment);
         BtnDone = findViewById(R.id.btn_done_details);
     }
 
@@ -338,7 +335,7 @@ public class BookGameActivity extends AppCompatActivity {
     private void setGameDetailsAPI() {
         if (CommonUtils.isOnline(BookGameActivity.this)) {
             final ProgressDialog dialog = ProgressDialog.show(BookGameActivity.this, null, getString(R.string.loading));
-         //   GameRequest request = new GameRequest();
+            //   GameRequest request = new GameRequest();
 
 //            Log.d("dddss", sessonManager.getToken());
 //            Log.d("idszx", getIntent().getStringExtra("gameId"));
@@ -351,11 +348,11 @@ public class BookGameActivity extends AppCompatActivity {
             call.enqueue(new Callback<GameDetailsJsonResponse>() {
                              @Override
                              public void onResponse(Call<GameDetailsJsonResponse> call, Response<GameDetailsJsonResponse> response) {
-                               //  System.out.println("ViewVisitorType " + "API Data" + new Gson().toJson(response.body()));
+                                 //  System.out.println("ViewVisitorType " + "API Data" + new Gson().toJson(response.body()));
                                  if (dialog != null && dialog.isShowing()) {
                                      dialog.dismiss();
                                  }
-                                   Log.d("klasksakf" , new Gson().toJson(response.body()));
+                                 Log.d("klasksakf", new Gson().toJson(response.body()));
 
                                  if (response.body() != null) {
                                      if (response.body().status != null && response.body().status.equals("success")) {
@@ -363,10 +360,10 @@ public class BookGameActivity extends AppCompatActivity {
                                              balance = response.body().data.balance;
                                              String cdate = response.body().data.cdate;
                                              String digit = response.body().data.game.degit;
-                                             TvBalance.setText("Rs."+balance);
-                                           //  TvTotal.setText(total + " Rs.");
+                                             TvBalance.setText("Rs." + balance);
+                                             //  TvTotal.setText(total + " Rs.");
                                              TvDate.setText(cdate);
-                                             txtTodayDigit.setText("Today's Digit\n"+digit);
+                                             txtTodayDigit.setText("Today's Digit\n" + digit);
                                              String name = response.body().data.game.name;
                                              String game_time = response.body().data.game.game_time;
                                              price = response.body().data.game.price;
@@ -374,7 +371,7 @@ public class BookGameActivity extends AppCompatActivity {
                                              TvName.setText(name);
                                              TvTime.setText(game_time);
                                              // Log.d("gamehhjghgh", game_time);
-                                             timerCount =  new CountDownTimer(response.body().data.game.remaining, 1000) {
+                                             timerCount = new CountDownTimer(response.body().data.game.remaining, 1000) {
                                                  @Override
                                                  public void onTick(long millisUntilFinished) {
                                                      String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millisUntilFinished), TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinished)), TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)));
@@ -391,10 +388,10 @@ public class BookGameActivity extends AppCompatActivity {
                                              timerCount.start();
 
                                          } else {
-                                             Toast.makeText(BookGameActivity.this, ""+response.body().message, Toast.LENGTH_SHORT).show();
+                                             Toast.makeText(BookGameActivity.this, "" + response.body().message, Toast.LENGTH_SHORT).show();
                                          }
-                                     }else {
-                                         Toast.makeText(BookGameActivity.this, ""+response.body().message, Toast.LENGTH_SHORT).show();
+                                     } else {
+                                         Toast.makeText(BookGameActivity.this, "" + response.body().message, Toast.LENGTH_SHORT).show();
                                          onBackPressed();
                                      }
 
@@ -413,7 +410,7 @@ public class BookGameActivity extends AppCompatActivity {
                                  if (dialog != null && dialog.isShowing()) {
                                      dialog.dismiss();
 
-                                     Toast.makeText(BookGameActivity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                                     Toast.makeText(BookGameActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                                  }
                                  System.out.println("API Data Error : " + t.getMessage());
                              }

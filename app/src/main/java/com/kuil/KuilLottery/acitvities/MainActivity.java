@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Snackbar snackbar;
     TextView TvMobileGuest;
     TextView tv_tool;
-    static public TextView txtBalnc, txtUser,txtCommisn;
+    static public TextView txtBalnc, txtUser, txtCommisn;
 
     private AppBarConfiguration mAppBarConfiguration;
     DrawerLayout drawer;

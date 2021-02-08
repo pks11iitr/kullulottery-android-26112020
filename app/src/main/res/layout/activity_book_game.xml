@@ -151,7 +151,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/ic_watch"
-                    app:tint="@color/white"/>
+                    app:tint="@color/white" />
 
                 <TextView
                     android:id="@+id/tv_time_detail"
@@ -176,8 +176,8 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/ic_watch"
-                    android:tint="@color/red"
-                    app:tint="@color/red"/>
+                    app:tint="@color/red"
+                    tools:ignore="UseAppTint" />
 
                 <TextView
                     android:id="@+id/tv_time_Timer"
@@ -195,13 +195,13 @@
                 android:id="@+id/txtTodayDigit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_marginLeft="10sp"
-                android:text="Today's Digit"
                 android:gravity="center"
+                android:text="Today's Digit"
                 android:textColor="@color/white"
                 android:textSize="17sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
         </LinearLayout>
 
 
@@ -289,8 +289,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10sp"
                         android:gravity="center|left"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <TextView
                             android:layout_width="0dp"
@@ -315,7 +315,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="5dp"
-                        android:orientation="vertical"/>
+                        android:orientation="vertical" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -325,21 +325,21 @@
     </LinearLayout>
 
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginLeft="5dp"-->
-<!--        android:layout_marginTop="15dp"-->
-<!--        android:layout_marginRight="5dp"-->
-<!--        android:orientation="horizontal">-->
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginLeft="5dp"-->
+    <!--        android:layout_marginTop="15dp"-->
+    <!--        android:layout_marginRight="5dp"-->
+    <!--        android:orientation="horizontal">-->
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/recyclerview"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="100dp"-->
-<!--            android:visibility="gone" />-->
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
+    <!--            android:id="@+id/recyclerview"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:visibility="gone" />-->
 
-<!--    </LinearLayout>-->
+    <!--    </LinearLayout>-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -348,7 +348,7 @@
         android:text="Ticket Digit"
         android:textColor="@color/white"
         android:textSize="17sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -543,7 +543,7 @@
                     android:gravity="center"
                     android:text="9"
                     android:textColor="@color/white"
-                    android:textSize="10sp"/>
+                    android:textSize="10sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -822,17 +822,35 @@
         android:textStyle="bold" />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_weight="25"
+        android:orientation="horizontal">
 
+        <EditText
+            android:id="@+id/EtComment"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="top"
+            android:hint="Comments here"
+            android:paddingLeft="10sp"
+            android:background="@drawable/shape_comments"
+            android:inputType="textMultiLine"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="15sp"></EditText>
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="35"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:paddingTop="20dp"
-        android:orientation="horizontal">
+        android:layout_weight="20"
+        android:gravity="center">
 
         <LinearLayout
             android:id="@+id/linearbluerectangle"
@@ -855,14 +873,14 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
-    </LinearLayout>
 
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10" />
-
+        android:layout_weight="10"></LinearLayout>
 
 
 </LinearLayout>
